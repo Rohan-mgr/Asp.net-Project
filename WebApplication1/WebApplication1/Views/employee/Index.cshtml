@@ -1,8 +1,25 @@
-﻿
+﻿@model List<WebApplication1.Models.empDetail>
+
 @{
     ViewBag.Title = "View";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>View</h2>
+<h2>Employee List</h2>
+<table class="table" border="1">
+    <tr>
+        <th>Employee ID</th>
+        <th>Empolyee Name</th>
+        <th>Employee Address</th>
+        <th>Employee Contact</th>
+    </tr>
+    @foreach (var data in Model){
+<tr>
+    <td>@data.eid</td>
+    <td>@data.ename</td>
+    <td>@data.eaddress</td>
+    <td>@data.contacts</td>
+</tr>
+    }
+</table>
 
