@@ -8,7 +8,7 @@
     <Key>
       <PropertyRef Name="eid" />
     </Key>
-    <Property Name="eid" Type="Int32" Nullable="false" />
+    <Property Name="eid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="ename" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="eaddress" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="contacts" Type="Int64" />

@@ -9,8 +9,16 @@
     .table {
         background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(56,121,9,1) 0%, rgba(0,212,255,1) 100%);
     }
+    #create {
+        margin-top: 20px !important;
+        text-align: center; 
+    }
+    #create a {
+        text-decoration: none;
+    }
 </style>
 <h2>Employee List</h2>
+
 <table class="table" border="1">
     <tr>
         <th>SN</th>
@@ -29,4 +37,7 @@
 </tr>
     }
 </table>
+<div id="create">
+    <a href="@Url.Action("Create")">Add New Record</a>
+</div>
 

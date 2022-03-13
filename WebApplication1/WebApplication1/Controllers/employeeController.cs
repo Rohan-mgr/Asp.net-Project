@@ -16,5 +16,15 @@ namespace WebApplication1.Controllers
             List<empDetail> data = db.empDetails.ToList();
             return View(data);
         }
+        public ActionResult Create()
+        {
+            return View();
+        }
+        public ActionResult SaveData(empDetail empDetail)
+        {
+            db.empDetails.Add(empDetail);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
