@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -23,6 +24,18 @@ namespace WebApplication1.Controllers
         public ActionResult SaveData(empDetail empDetail)
         {
             db.empDetails.Add(empDetail);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }   
+        public ActionResult Edit(int id)
+        {
+            empDetail data = db.empDetails.Find(id);
+            //tbl_name data = db.tbl_employee.FirstOrDefault(x => x.id == id);
+            return View(data);
+        }
+        public ActionResult UpdateData(empDetail empDetail)
+        {
+            db.Entry(empDetail).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index");
         }

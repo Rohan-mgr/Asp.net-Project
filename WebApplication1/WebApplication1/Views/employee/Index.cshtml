@@ -13,9 +13,13 @@
         margin-top: 20px !important;
         text-align: center; 
     }
-    #create a {
+     #create a {
         text-decoration: none;
     }
+     td a {
+         text-decoration: none;
+         color: #000;
+     }
 </style>
 <h2>Employee List</h2>
 
@@ -26,6 +30,7 @@
         <th>Empolyee Name</th>
         <th>Employee Address</th>
         <th>Employee Contact</th>
+        <th>Edit</th>
     </tr>
     @foreach (var data in Model){
 <tr>
@@ -34,6 +39,7 @@
     <td>@data.ename</td>
     <td>@data.eaddress</td>
     <td>@data.contacts</td>
+    <td><a href="@Url.Action("Edit", new {id=data.eid})">Edit</a></td>
 </tr>
     }
 </table>

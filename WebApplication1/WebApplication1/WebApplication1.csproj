@@ -213,6 +213,7 @@
     <Content Include="Views\employee\Index.cshtml" />
     <Content Include="Views\student\student.cshtml" />
     <Content Include="Views\employee\Create.cshtml" />
+    <Content Include="Views\employee\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
