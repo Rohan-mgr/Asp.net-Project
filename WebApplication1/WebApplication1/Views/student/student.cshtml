@@ -1,4 +1,4 @@
-﻿
+﻿@model List<WebApplication1.Models.student>
 @{
     ViewBag.Title = "Student";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -16,13 +16,18 @@
     </tr>
     @foreach (var data in Model)
     {
-        <tr>
-            <td>@(++sn)</td>
-            <td>@data.sid</td>
-            <td>@data.sname</td>
-            <td>@data.saddress</td>
-            <td>@data.contacts</td>
-        </tr>
+<tr>
+    <td>@(++sn)</td>
+    <td>@data.sid</td>
+    <td>@data.sname</td>
+    <td>@data.saddress</td>
+    <td>@data.contacts</td>
+    <td><a href="@Url.Action("Edit", new {id=data.sid})">Edit</a></td>
+    <td><a href="@Url.Action("Delete", new {id=data.sid})">Delete</a></td>
+</tr>
     }
 </table>
+<div id="create">
+    <a href="@Url.Action("Create")">Add New Record</a>
+</div>
 

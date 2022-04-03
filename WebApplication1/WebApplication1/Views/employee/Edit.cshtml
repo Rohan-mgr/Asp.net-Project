@@ -17,16 +17,16 @@
 </style>
 <h2>Edit</h2>
 
-@using(Html.BeginForm("UpdateData", "employee"))
+@using(Html.BeginForm("UpdateData", "student"))
 {
 <div class="details__div">
     <input type="hidden" name="eid" value="@Model.eid" />
     <label>Name: </label>
-    <input type="text" name="ename" autocomplete="off" />
+    <input type="text" name="ename" value="@Model.ename" autocomplete="off" />
     <label>Address: </label>
-    <input type="text" name="eaddress" autocomplete="off" />
+    <input type="text" name="eaddress" value="@Model.eaddress" autocomplete="off" />
     <label>Contact: </label>
-    <input type="text" name="contacts" />
+    <input type="text" name="contacts" value="@Model.contacts" />
     <button type="submit" class="btn btn-success" value="Save">Submit</button>
 </div>
 }

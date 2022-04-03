@@ -26,7 +26,7 @@ namespace WebApplication1.Controllers
             db.empDetails.Add(empDetail);
             db.SaveChanges();
             return RedirectToAction("Index");
-        }   
+        }
         public ActionResult Edit(int id)
         {
             empDetail data = db.empDetails.Find(id);
@@ -36,6 +36,13 @@ namespace WebApplication1.Controllers
         public ActionResult UpdateData(empDetail empDetail)
         {
             db.Entry(empDetail).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        public ActionResult Delete(int id)
+        {
+            empDetail data = db.empDetails.Find(id);
+            db.empDetails.Remove(data);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
