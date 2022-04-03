@@ -13,13 +13,23 @@
     <Key>
       <PropertyRef Name="sid" />
     </Key>
-    <Property Name="sid" Type="int" Nullable="false" />
+    <Property Name="sid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="sname" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="saddress" Type="varchar" MaxLength="30" />
+    <Property Name="contacts" Type="bigint" />
+  </EntityType>
+  <EntityType Name="teachers">
+    <Key>
+      <PropertyRef Name="tid" />
+    </Key>
+    <Property Name="tid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tname" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="taddress" Type="varchar" MaxLength="30" />
     <Property Name="contacts" Type="bigint" />
   </EntityType>
   <EntityContainer Name="EmployeeModelStoreContainer">
     <EntitySet Name="empDetails" EntityType="Self.empDetails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="students" EntityType="Self.students" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="teachers" EntityType="Self.teachers" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

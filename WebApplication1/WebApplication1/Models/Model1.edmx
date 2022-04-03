@@ -18,14 +18,24 @@
           <Key>
             <PropertyRef Name="sid" />
           </Key>
-          <Property Name="sid" Type="int" Nullable="false" />
+          <Property Name="sid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="sname" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="saddress" Type="varchar" MaxLength="30" />
+          <Property Name="contacts" Type="bigint" />
+        </EntityType>
+        <EntityType Name="teachers">
+          <Key>
+            <PropertyRef Name="tid" />
+          </Key>
+          <Property Name="tid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tname" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="taddress" Type="varchar" MaxLength="30" />
           <Property Name="contacts" Type="bigint" />
         </EntityType>
         <EntityContainer Name="EmployeeModelStoreContainer">
           <EntitySet Name="empDetails" EntityType="Self.empDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="students" EntityType="Self.students" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="teachers" EntityType="Self.teachers" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -34,6 +44,7 @@
         <EntityContainer Name="EmployeeEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="empDetails" EntityType="EmployeeModel.empDetail" />
           <EntitySet Name="students" EntityType="EmployeeModel.student" />
+          <EntitySet Name="teachers" EntityType="EmployeeModel.teacher" />
         </EntityContainer>
         <EntityType Name="empDetail">
           <Key>
@@ -48,12 +59,21 @@
           <Key>
             <PropertyRef Name="sid" />
           </Key>
-          <Property Name="sid" Type="Int32" Nullable="false" />
+          <Property Name="sid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="sname" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="saddress" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="contacts" Type="Int64" />
         </EntityType>
-      </Schema>
+        <EntityType Name="teacher">
+          <Key>
+            <PropertyRef Name="tid" />
+          </Key>
+          <Property Name="tid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tname" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="taddress" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="contacts" Type="Int64" />
+        </EntityType>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -76,6 +96,16 @@
                 <ScalarProperty Name="saddress" ColumnName="saddress" />
                 <ScalarProperty Name="sname" ColumnName="sname" />
                 <ScalarProperty Name="sid" ColumnName="sid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="teachers">
+            <EntityTypeMapping TypeName="EmployeeModel.teacher">
+              <MappingFragment StoreEntitySet="teachers">
+                <ScalarProperty Name="contacts" ColumnName="contacts" />
+                <ScalarProperty Name="taddress" ColumnName="taddress" />
+                <ScalarProperty Name="tname" ColumnName="tname" />
+                <ScalarProperty Name="tid" ColumnName="tid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

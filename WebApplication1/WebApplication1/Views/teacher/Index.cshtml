@@ -1,0 +1,34 @@
+﻿@model List<WebApplication1.Models.teacher>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int sn = 0;
+}
+
+<h2>This is Teacher Index</h2>
+
+<table class="table" border="1">
+    <tr>
+        <th>SN</th>
+        <th>Teacher ID</th>
+        <th>Teacher Name</th>
+        <th>Teacher Address</th>
+        <th>Teacher Contact</th>
+    </tr>
+    @foreach (var data in Model)
+    {
+        <tr>
+            <td>@(++sn)</td>
+            <td>@data.tid</td>
+            <td>@data.tname</td>
+            <td>@data.taddress</td>
+            <td>@data.contacts</td>
+            <td><a href="@Url.Action("Edit", new {id=data.tid})">Edit</a></td>
+            <td><a href="@Url.Action("Delete", new {id=data.tid})">Delete</a></td>
+        </tr>
+    }
+</table>
+<div id="create">
+    <a href="@Url.Action("Create")">Add New Record</a>
+</div>
+
