@@ -2,8 +2,13 @@
 <Schema Namespace="EmployeeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="EmployeeEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="empDetails" EntityType="EmployeeModel.empDetail" />
+    <EntitySet Name="employee_salary_details" EntityType="EmployeeModel.employee_salary_details" />
     <EntitySet Name="students" EntityType="EmployeeModel.student" />
     <EntitySet Name="teachers" EntityType="EmployeeModel.teacher" />
+    <AssociationSet Name="FK__employee___emplo__72C60C4A" Association="EmployeeModel.FK__employee___emplo__72C60C4A">
+      <End Role="empDetail" EntitySet="empDetails" />
+      <End Role="employee_salary_details" EntitySet="employee_salary_details" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="empDetail">
     <Key>
@@ -13,12 +18,23 @@
     <Property Name="ename" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="eaddress" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="contacts" Type="Int64" />
+    <NavigationProperty Name="employee_salary_details" Relationship="EmployeeModel.FK__employee___emplo__72C60C4A" FromRole="empDetail" ToRole="employee_salary_details" />
+  </EntityType>
+  <EntityType Name="employee_salary_details">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="employee_id" Type="Int32" />
+    <Property Name="salary_paid" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="paid_date" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="empDetail" Relationship="EmployeeModel.FK__employee___emplo__72C60C4A" FromRole="employee_salary_details" ToRole="empDetail" />
   </EntityType>
   <EntityType Name="student">
     <Key>
       <PropertyRef Name="sid" />
     </Key>
-    <Property Name="sid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sid" Type="Int32" Nullable="false" />
     <Property Name="sname" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="saddress" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="contacts" Type="Int64" />
@@ -32,4 +48,16 @@
     <Property Name="taddress" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="contacts" Type="Int64" />
   </EntityType>
+  <Association Name="FK__employee___emplo__72C60C4A">
+    <End Type="EmployeeModel.empDetail" Role="empDetail" Multiplicity="0..1" />
+    <End Type="EmployeeModel.employee_salary_details" Role="employee_salary_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="empDetail">
+        <PropertyRef Name="eid" />
+      </Principal>
+      <Dependent Role="employee_salary_details">
+        <PropertyRef Name="employee_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

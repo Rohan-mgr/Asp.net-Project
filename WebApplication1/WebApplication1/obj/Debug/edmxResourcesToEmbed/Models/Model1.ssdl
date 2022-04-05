@@ -9,11 +9,20 @@
     <Property Name="eaddress" Type="varchar" MaxLength="30" />
     <Property Name="contacts" Type="bigint" />
   </EntityType>
+  <EntityType Name="employee_salary_details">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="employee_id" Type="int" />
+    <Property Name="salary_paid" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="paid_date" Type="datetime" />
+  </EntityType>
   <EntityType Name="students">
     <Key>
       <PropertyRef Name="sid" />
     </Key>
-    <Property Name="sid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sid" Type="int" Nullable="false" />
     <Property Name="sname" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="saddress" Type="varchar" MaxLength="30" />
     <Property Name="contacts" Type="bigint" />
@@ -27,9 +36,26 @@
     <Property Name="taddress" Type="varchar" MaxLength="30" />
     <Property Name="contacts" Type="bigint" />
   </EntityType>
+  <Association Name="FK__employee___emplo__72C60C4A">
+    <End Role="empDetails" Type="Self.empDetails" Multiplicity="0..1" />
+    <End Role="employee_salary_details" Type="Self.employee_salary_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="empDetails">
+        <PropertyRef Name="eid" />
+      </Principal>
+      <Dependent Role="employee_salary_details">
+        <PropertyRef Name="employee_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="EmployeeModelStoreContainer">
     <EntitySet Name="empDetails" EntityType="Self.empDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="employee_salary_details" EntityType="Self.employee_salary_details" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="students" EntityType="Self.students" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="teachers" EntityType="Self.teachers" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__employee___emplo__72C60C4A" Association="Self.FK__employee___emplo__72C60C4A">
+      <End Role="empDetails" EntitySet="empDetails" />
+      <End Role="employee_salary_details" EntitySet="employee_salary_details" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>

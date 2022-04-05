@@ -33,6 +33,21 @@ insert into teachers(tname, taddress, contacts) values ('Rohan', 'simara', 98076
 insert into teachers(tname, taddress, contacts) values ('Prashna', 'Kandaghari', 9807666321);
 insert into teachers(tname, taddress, contacts) values ('kando', 'nayabasti', 9807666321);
 
+
+
+
 select * from empDetails;
 select * from students;
 select * from teachers;
+
+create table employee_salary_details(
+	id int primary key identity(20000,1), 
+	employee_id int, 
+	salary_paid decimal(18,2), 
+	paid_date datetime,
+	foreign key (employee_id) references empDetails(eid)
+);
+drop table employee_salary_details;
+
+select * from employee_salary_details;
+insert into employee_salary_details(id, employee_id, salary_paid, paid_date) values (2000, 101, 1564.3, '2022-02-12');

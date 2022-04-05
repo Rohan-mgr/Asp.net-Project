@@ -1,0 +1,33 @@
+﻿@model WebApplication1.Models.employee_salary_details
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .details__div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .btn {
+        width: 10%;
+        margin-top: 10px;
+    }
+</style>
+<h2>Edit</h2>
+
+@using (Html.BeginForm("UpdateData", "empSalary"))
+{
+    <div class="details__div">
+        <input type="hidden" name="id" value="@Model.id"/>
+        <input type="hidden" name="employee_id" value="@Model.employee_id" />
+        <input type="hidden" name="ename" value="@Model.empDetail.ename" />
+        <label>Salary Paid: </label>
+        <input type="text" name="salary_paid" value="@Model.salary_paid" />
+        <label>Paid Paid: </label>
+        <input type="text" name="paid_date" value="@Model.paid_date" />
+        <button type="submit" class="btn btn-success" value="Save">Submit</button>
+    </div>
+}
+
