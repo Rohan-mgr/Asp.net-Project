@@ -50,4 +50,4 @@ create table employee_salary_details(
 drop table employee_salary_details;
 
 select * from employee_salary_details;
-insert into employee_salary_details(id, employee_id, salary_paid, paid_date) values (2000, 101, 1564.3, '2022-02-12');
+insert into employee_salary_details(employee_id, salary_paid, paid_date) values (101, 1564.3, '2022-02-12');
