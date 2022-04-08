@@ -27,11 +27,20 @@ namespace WebApplication1.Controllers
         {
             employee_salary_details data = db.employee_salary_details.Find(id);
             //tbl_name data = db.tbl_employee.FirstOrDefault(x => x.id == id);
+            var employeeList = db.empDetails.ToList();
+            ViewBag.employeeList = new SelectList(employeeList, "eid", "ename");
             return View(data);
         }
         public ActionResult UpdateData(employee_salary_details employee_Salary_Details)
         {
             db.Entry(employee_Salary_Details).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        public ActionResult Delete(int id)
+        {
+            employee_salary_details data = db.employee_salary_details.Find(id);
+            db.employee_salary_details.Remove(data);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

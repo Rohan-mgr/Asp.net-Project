@@ -131,8 +131,8 @@
     <Compile Include="Controllers\employeeController.cs" />
     <Compile Include="Controllers\empSalaryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\studentController.cs" />
     <Compile Include="Controllers\teacherController.cs" />
+    <Compile Include="Controllers\teacherSalaryController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -157,10 +157,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\student.cs">
+    <Compile Include="Models\teacher.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\teacher.cs">
+    <Compile Include="Models\teacher_salary.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -219,17 +219,17 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\employee\Index.cshtml" />
-    <Content Include="Views\student\student.cshtml" />
     <Content Include="Views\employee\Create.cshtml" />
     <Content Include="Views\employee\Edit.cshtml" />
-    <Content Include="Views\student\Edit.cshtml" />
-    <Content Include="Views\student\Create.cshtml" />
     <Content Include="Views\teacher\Index.cshtml" />
     <Content Include="Views\teacher\Create.cshtml" />
     <Content Include="Views\teacher\Edit.cshtml" />
     <Content Include="Views\empSalary\Index.cshtml" />
     <Content Include="Views\empSalary\Edit.cshtml" />
     <Content Include="Views\empSalary\Create.cshtml" />
+    <Content Include="Views\teacherSalary\Index.cshtml" />
+    <Content Include="Views\teacherSalary\Create.cshtml" />
+    <Content Include="Views\teacherSalary\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,36 @@
+﻿@model List<WebApplication1.Models.teacher_salary>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int sn = 0;
+}
+
+<h2>Index</h2>
+<p>@Html.ActionLink("Create New", "Create")</p>
+<table class="table">
+    <tr>
+        <th>sn</th>
+        <th>ID</th>
+        <th>Teacher ID</th>
+        <th>Teacher Name</th>
+        <th>Salary Amount</th>
+        <th>Paid Date</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var item in Model) 
+    {
+        <tr>
+            <td>@(++sn)</td>
+            <td>@item.id</td>
+            <td>@item.tid</td>
+            <td>@item.teacher.tname</td>
+            <td>@item.salary_paid</td>
+            <td>@item.paid_date</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {id= item.id}) |
+                @Html.ActionLink("Details", "Details", new {id = item.id}) |
+                @Html.ActionLink("Delete", "Delete", new {id = item.id})
+            </td>
+        </tr>
+    }
+</table>

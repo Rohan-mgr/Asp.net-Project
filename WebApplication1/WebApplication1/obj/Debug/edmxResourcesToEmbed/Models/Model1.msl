@@ -21,13 +21,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="students">
-      <EntityTypeMapping TypeName="EmployeeModel.student">
-        <MappingFragment StoreEntitySet="students">
-          <ScalarProperty Name="contacts" ColumnName="contacts" />
-          <ScalarProperty Name="saddress" ColumnName="saddress" />
-          <ScalarProperty Name="sname" ColumnName="sname" />
-          <ScalarProperty Name="sid" ColumnName="sid" />
+    <EntitySetMapping Name="teacher_salary">
+      <EntityTypeMapping TypeName="EmployeeModel.teacher_salary">
+        <MappingFragment StoreEntitySet="teacher_salary">
+          <ScalarProperty Name="paid_date" ColumnName="paid_date" />
+          <ScalarProperty Name="salary_paid" ColumnName="salary_paid" />
+          <ScalarProperty Name="tid" ColumnName="tid" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

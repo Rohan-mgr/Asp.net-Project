@@ -12,11 +12,13 @@ namespace WebApplication1.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class student
+    public partial class teacher_salary
     {
-        public int sid { get; set; }
-        public string sname { get; set; }
-        public string saddress { get; set; }
-        public Nullable<long> contacts { get; set; }
+        public int id { get; set; }
+        public Nullable<int> tid { get; set; }
+        public Nullable<decimal> salary_paid { get; set; }
+        public Nullable<System.DateTime> paid_date { get; set; }
+    
+        public virtual teacher teacher { get; set; }
     }
 }

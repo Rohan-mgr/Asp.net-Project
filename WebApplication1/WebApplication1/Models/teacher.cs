@@ -14,9 +14,18 @@ namespace WebApplication1.Models
     
     public partial class teacher
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public teacher()
+        {
+            this.teacher_salary = new HashSet<teacher_salary>();
+        }
+    
         public int tid { get; set; }
         public string tname { get; set; }
         public string taddress { get; set; }
         public Nullable<long> contacts { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<teacher_salary> teacher_salary { get; set; }
     }
 }

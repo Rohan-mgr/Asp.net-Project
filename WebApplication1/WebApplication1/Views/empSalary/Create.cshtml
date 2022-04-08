@@ -1,39 +1,40 @@
-﻿
+﻿@model WebApplication1.Models.employee_salary_details
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <style>
-   .details__div {
-       display: flex; 
-       flex-direction: column;
-       justify-content: center;
-   }
-   .btn {
-       width: 10%;
-       margin-top: 10px;
-   }
+    .details__div {
+        display: flex;          
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .btn {
+        width: 10%;
+        margin-top: 10px;
+    }
 </style>
 <h2>Details</h2>
 @using (Html.BeginForm("Create", null, FormMethod.Post))
 {
-<div class="form-horizontal">
-    <div class="form-group">
-        <label>Employee Name</label>
-        @Html.DropDownList("employeeList", null, "Select", htmlAttributes: new { @Name = "employee_id" })
-        @*<input type="text" name="employee_id" class="form-control" />*@
-        
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label>Employee Name</label>
+            @Html.DropDownList("employeeList", null, "Select", htmlAttributes: new { @Name = "employee_id" })
+            @*<input type="text" name="employee_id" class="form-control" />*@
+
+        </div>
+        <div class="form-group">
+            <label>Salary Paid</label>
+            <input type="text" name="salary_paid" class="form_control" />
+        </div>
+        <div class="form-group">
+            <label>Paid Date</label>
+            <input type="date" name="paid_date" class="form-control" />
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-success" />
+        </div>
     </div>
-    <div class="form-group">
-        <label>Salary Paid</label>
-        <input type="text" name="salary_paid" class="form_control" />
-    </div>
-    <div class="form-group">
-        <label>Paid Date</label>
-        <input type="date" name="paid_date" class="form-control" />
-    </div>
-    <div class="form-group">
-        <input type="submit" value="Save" class="btn btn-success" />
-    </div>
-</div>
 }

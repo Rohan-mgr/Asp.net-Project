@@ -19,15 +19,17 @@
 
 @using (Html.BeginForm("UpdateData", "empSalary"))
 {
-    <div class="details__div">
-        <input type="hidden" name="id" value="@Model.id"/>
-        <input type="hidden" name="employee_id" value="@Model.employee_id" />
-        <input type="hidden" name="ename" value="@Model.empDetail.ename" />
-        <label>Salary Paid: </label>
-        <input type="text" name="salary_paid" value="@Model.salary_paid" />
-        <label>Paid Paid: </label>
-        <input type="text" name="paid_date" value="@Model.paid_date" />
-        <button type="submit" class="btn btn-success" value="Save">Submit</button>
-    </div>
+<div class="details__div">
+    <label>Employee Name</label>
+    @Html.DropDownList("employeeList", null, "Select", htmlAttributes: new { @Name = "employee_id" })
+    <input type="hidden" name="id" value="@Model.id" />
+    <input type="hidden" name="employee_id" value="@Model.employee_id" />
+    <input type="hidden" name="ename" value="@Model.empDetail.ename" />
+    <label>Salary Paid: </label>
+    <input type="text" name="salary_paid" value="@Model.salary_paid" />
+    <label>Paid Paid: </label>
+    <input type="text" name="paid_date" value="@Model.paid_date" />
+    <button type="submit" class="btn btn-success" value="Save">Submit</button>
+</div>
 }
 

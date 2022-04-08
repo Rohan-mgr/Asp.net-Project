@@ -1,0 +1,34 @@
+﻿@model WebApplication1.Models.teacher_salary
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .details__div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .btn {
+        width: 10%;
+        margin-top: 10px;
+    }
+</style>
+<h2>Edit</h2>
+
+@using (Html.BeginForm("UpdateData", "teacherSalary"))
+            {
+                <div class="details__div">
+                    <label>Teacher Name</label>
+                    @Html.DropDownList("teacherList", null, "Select", htmlAttributes: new { @Name = "tid" })
+                    <input type="hidden" name="id" value="@Model.id" />
+                    <input type="hidden" name="tid" value="@Model.tid" />
+                    <input type="hidden" name="tname" value="@Model.teacher.tname" />
+                    <label>Salary Paid:</label>
+                    <input type="text" name="salary_paid" value="@Model.salary_paid" />
+                    <label>Paid Date: </label>
+                    <input type="text" name="paid_date" value="@Model.paid_date" />
+                    <button type="submit" class="btn btn-success" value="Save">Submit</button>
+                </div>
+            }
