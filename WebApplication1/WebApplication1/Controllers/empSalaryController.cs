@@ -12,9 +12,9 @@ namespace WebApplication1.Controllers
     {
         // GET: empSalary
         EmployeeEntities db = new EmployeeEntities();
-        public ActionResult Index()
+        public ActionResult Index( string search)
         {
-            List<employee_salary_details> data = db.employee_salary_details.ToList();
+            List<employee_salary_details> data = db.employee_salary_details.Where(x => x.empDetail.ename == search || search == null).ToList();
             return View(data);
         }
         public ActionResult Create()
@@ -44,6 +44,7 @@ namespace WebApplication1.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        
         [HttpPost]
         public ActionResult Create(employee_salary_details employee_Salary_Details)
         {

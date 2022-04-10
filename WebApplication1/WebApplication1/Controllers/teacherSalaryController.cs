@@ -12,9 +12,9 @@ namespace WebApplication1.Controllers
     {
         // GET: teacherSalary
         EmployeeEntities db = new EmployeeEntities();
-        public ActionResult Index()
+        public ActionResult Index(string search)
         {
-            List<teacher_salary> data = db.teacher_salary.ToList();
+            List<teacher_salary> data = db.teacher_salary.Where(x => x.teacher.tname == search || search == null).ToList();
             return View(data);
         }
         public ActionResult Create()
