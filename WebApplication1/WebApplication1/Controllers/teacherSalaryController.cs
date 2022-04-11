@@ -12,9 +12,9 @@ namespace WebApplication1.Controllers
     {
         // GET: teacherSalary
         EmployeeEntities db = new EmployeeEntities();
-        public ActionResult Index(string search)
+        public ActionResult Index(DateTime? search, DateTime? search2)
         {
-            List<teacher_salary> data = db.teacher_salary.Where(x => x.teacher.tname == search || search == null).ToList();
+            List<teacher_salary> data = db.teacher_salary.Where(x => (x.paid_date >= search && x.paid_date <= search2) || search == null).ToList();
             return View(data);
         }
         public ActionResult Create()

@@ -36,7 +36,7 @@
     <Property Name="taddress" Type="varchar" MaxLength="30" />
     <Property Name="contacts" Type="bigint" />
   </EntityType>
-  <Association Name="FK__employee___emplo__5DCAEF64">
+  <Association Name="FK__employee___emplo__72C60C4A">
     <End Role="empDetails" Type="Self.empDetails" Multiplicity="0..1" />
     <End Role="employee_salary_details" Type="Self.employee_salary_details" Multiplicity="*" />
     <ReferentialConstraint>
@@ -48,7 +48,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__teacher_sal__tid__6FE99F9F">
+  <Association Name="FK__teacher_sal__tid__02FC7413">
     <End Role="teachers" Type="Self.teachers" Multiplicity="0..1" />
     <End Role="teacher_salary" Type="Self.teacher_salary" Multiplicity="*" />
     <ReferentialConstraint>
@@ -65,11 +65,11 @@
     <EntitySet Name="employee_salary_details" EntityType="Self.employee_salary_details" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="teacher_salary" EntityType="Self.teacher_salary" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="teachers" EntityType="Self.teachers" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__employee___emplo__5DCAEF64" Association="Self.FK__employee___emplo__5DCAEF64">
+    <AssociationSet Name="FK__employee___emplo__72C60C4A" Association="Self.FK__employee___emplo__72C60C4A">
       <End Role="empDetails" EntitySet="empDetails" />
       <End Role="employee_salary_details" EntitySet="employee_salary_details" />
     </AssociationSet>
-    <AssociationSet Name="FK__teacher_sal__tid__6FE99F9F" Association="Self.FK__teacher_sal__tid__6FE99F9F">
+    <AssociationSet Name="FK__teacher_sal__tid__02FC7413" Association="Self.FK__teacher_sal__tid__02FC7413">
       <End Role="teachers" EntitySet="teachers" />
       <End Role="teacher_salary" EntitySet="teacher_salary" />
     </AssociationSet>

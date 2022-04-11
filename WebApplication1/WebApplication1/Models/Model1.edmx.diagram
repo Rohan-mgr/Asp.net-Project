@@ -9,8 +9,8 @@
         <EntityTypeShape EntityType="EmployeeModel.employee_salary_details" Width="1.5" PointX="3" PointY="3.875" />
         <EntityTypeShape EntityType="EmployeeModel.teacher_salary" Width="1.5" PointX="3" PointY="0.875" />
         <EntityTypeShape EntityType="EmployeeModel.teacher" Width="1.5" PointX="0.75" PointY="0.875" />
-        <AssociationConnector Association="EmployeeModel.FK__employee___emplo__5DCAEF64" />
-        <AssociationConnector Association="EmployeeModel.FK__teacher_sal__tid__6FE99F9F" />
+        <AssociationConnector Association="EmployeeModel.FK__employee___emplo__72C60C4A" />
+        <AssociationConnector Association="EmployeeModel.FK__teacher_sal__tid__02FC7413" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

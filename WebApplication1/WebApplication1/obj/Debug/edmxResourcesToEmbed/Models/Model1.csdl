@@ -5,11 +5,11 @@
     <EntitySet Name="employee_salary_details" EntityType="EmployeeModel.employee_salary_details" />
     <EntitySet Name="teacher_salary" EntityType="EmployeeModel.teacher_salary" />
     <EntitySet Name="teachers" EntityType="EmployeeModel.teacher" />
-    <AssociationSet Name="FK__employee___emplo__5DCAEF64" Association="EmployeeModel.FK__employee___emplo__5DCAEF64">
+    <AssociationSet Name="FK__employee___emplo__72C60C4A" Association="EmployeeModel.FK__employee___emplo__72C60C4A">
       <End Role="empDetail" EntitySet="empDetails" />
       <End Role="employee_salary_details" EntitySet="employee_salary_details" />
     </AssociationSet>
-    <AssociationSet Name="FK__teacher_sal__tid__6FE99F9F" Association="EmployeeModel.FK__teacher_sal__tid__6FE99F9F">
+    <AssociationSet Name="FK__teacher_sal__tid__02FC7413" Association="EmployeeModel.FK__teacher_sal__tid__02FC7413">
       <End Role="teacher" EntitySet="teachers" />
       <End Role="teacher_salary" EntitySet="teacher_salary" />
     </AssociationSet>
@@ -22,7 +22,7 @@
     <Property Name="ename" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="eaddress" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="contacts" Type="Int64" />
-    <NavigationProperty Name="employee_salary_details" Relationship="EmployeeModel.FK__employee___emplo__5DCAEF64" FromRole="empDetail" ToRole="employee_salary_details" />
+    <NavigationProperty Name="employee_salary_details" Relationship="EmployeeModel.FK__employee___emplo__72C60C4A" FromRole="empDetail" ToRole="employee_salary_details" />
   </EntityType>
   <EntityType Name="employee_salary_details">
     <Key>
@@ -32,7 +32,7 @@
     <Property Name="employee_id" Type="Int32" />
     <Property Name="salary_paid" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="paid_date" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="empDetail" Relationship="EmployeeModel.FK__employee___emplo__5DCAEF64" FromRole="employee_salary_details" ToRole="empDetail" />
+    <NavigationProperty Name="empDetail" Relationship="EmployeeModel.FK__employee___emplo__72C60C4A" FromRole="employee_salary_details" ToRole="empDetail" />
   </EntityType>
   <EntityType Name="teacher_salary">
     <Key>
@@ -42,7 +42,7 @@
     <Property Name="tid" Type="Int32" />
     <Property Name="salary_paid" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="paid_date" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="teacher" Relationship="EmployeeModel.FK__teacher_sal__tid__6FE99F9F" FromRole="teacher_salary" ToRole="teacher" />
+    <NavigationProperty Name="teacher" Relationship="EmployeeModel.FK__teacher_sal__tid__02FC7413" FromRole="teacher_salary" ToRole="teacher" />
   </EntityType>
   <EntityType Name="teacher">
     <Key>
@@ -52,9 +52,9 @@
     <Property Name="tname" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="taddress" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="contacts" Type="Int64" />
-    <NavigationProperty Name="teacher_salary" Relationship="EmployeeModel.FK__teacher_sal__tid__6FE99F9F" FromRole="teacher" ToRole="teacher_salary" />
+    <NavigationProperty Name="teacher_salary" Relationship="EmployeeModel.FK__teacher_sal__tid__02FC7413" FromRole="teacher" ToRole="teacher_salary" />
   </EntityType>
-  <Association Name="FK__employee___emplo__5DCAEF64">
+  <Association Name="FK__employee___emplo__72C60C4A">
     <End Type="EmployeeModel.empDetail" Role="empDetail" Multiplicity="0..1" />
     <End Type="EmployeeModel.employee_salary_details" Role="employee_salary_details" Multiplicity="*" />
     <ReferentialConstraint>
@@ -66,7 +66,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__teacher_sal__tid__6FE99F9F">
+  <Association Name="FK__teacher_sal__tid__02FC7413">
     <End Type="EmployeeModel.teacher" Role="teacher" Multiplicity="0..1" />
     <End Type="EmployeeModel.teacher_salary" Role="teacher_salary" Multiplicity="*" />
     <ReferentialConstraint>

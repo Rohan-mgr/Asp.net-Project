@@ -12,9 +12,9 @@ namespace WebApplication1.Controllers
     {
         // GET: empSalary
         EmployeeEntities db = new EmployeeEntities();
-        public ActionResult Index( string search)
+        public ActionResult Index(DateTime? search, DateTime? search2)
         {
-            List<employee_salary_details> data = db.employee_salary_details.Where(x => x.empDetail.ename == search || search == null).ToList();
+            List<employee_salary_details> data = db.employee_salary_details.Where(x => (x.paid_date >= search && x.paid_date <=search2) || search == null).ToList();
             return View(data);
         }
         public ActionResult Create()
@@ -23,7 +23,7 @@ namespace WebApplication1.Controllers
             ViewBag.employeeList = new SelectList(employeeList, "eid", "ename");
             return View();
         }
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id) 
         {
             employee_salary_details data = db.employee_salary_details.Find(id);
             //tbl_name data = db.tbl_employee.FirstOrDefault(x => x.id == id);

@@ -8,8 +8,11 @@
 <h2>Index</h2>
 @using (Html.BeginForm("Index", "teacherSalary", FormMethod.Get))
  {
-    <label>Search: </label>
-    <input type="text" name="search" />
+    <label>Search From: </label>
+    <input type="date" name="search" />
+    <label>Search To: </label>
+    <input type="date" name="search2" />
+    <input type="submit" value="Search" />
  }
 <p>@Html.ActionLink("Create New", "Create")</p>
 <table class="table">
