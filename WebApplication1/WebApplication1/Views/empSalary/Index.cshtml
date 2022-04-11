@@ -10,6 +10,8 @@
 <h1>This is empSalary controller </h1>
 @using (Html.BeginForm("Index", "empSalary", FormMethod.Get))
 {
+    <label>Employee: </label>
+    @Html.DropDownList("employeeList", null, "Select", htmlAttributes: new {@Name = "eid"})
     <label>Search From: </label>
     <input type="date" name="search" />
     <label>Search To: </label>

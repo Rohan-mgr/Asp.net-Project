@@ -14,6 +14,8 @@ namespace WebApplication1.Controllers
         EmployeeEntities db = new EmployeeEntities();
         public ActionResult Index(DateTime? search, DateTime? search2)
         {
+            var employeeList = db.empDetails.ToList();
+            ViewBag.employeeList = new SelectList(employeeList, "eid", "ename");
             List<employee_salary_details> data = db.employee_salary_details.Where(x => (x.paid_date >= search && x.paid_date <=search2) || search == null).ToList();
             return View(data);
         }
